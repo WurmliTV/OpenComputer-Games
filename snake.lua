@@ -137,7 +137,7 @@ function initialize()
   term.clear()
   term.setCursor(30,1)
   math.randomseed(os.clock())
-  print("~~~~SNAK THE GEEM~~~~")
+  print("~~~~SNAKE THE FRUITS~~~~")
   term.setCursor(70, 1)
   print("Score: 0")
   display(width, height)
@@ -226,7 +226,7 @@ t:kill()
 gpu.setForeground(reset_color)
 
 if ded == true then
-  local msg = "DED LMAO, SCORE: "
+  local msg = "DEAD - SCORE: "
   msg = msg .. #player
   term.setCursor(width/2 - #msg/2, height/2)
   print(msg)
