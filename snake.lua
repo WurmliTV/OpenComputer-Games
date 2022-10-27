@@ -22,7 +22,7 @@ local OLD_X, OLD_Y = gpu.getResolution()
 gpu.setResolution(80, 25)
 
 function unknownEvent() end
-local event_handlers = setmetatable({}, { __index = function() unknownEvent() end })
+local event_handlers = setmetatable({}, { __index = function() return unknownEvent() end })
 
 local directions = {
     up = { x = 0, y = -1 },
@@ -55,7 +55,7 @@ function event_handlers.key_down(address, char, code, playerName)
     end
 
     if not running then
-        current_dir = directions.right
+        current_direction = directions.right
     end
 
     if code == keyboard.keys.q then
@@ -143,7 +143,7 @@ function initialize()
 
     math.randomseed(os.clock())
 
-    print("~~~ EAT THE FRUITS ~~~")
+    print("« SNAKE »")
 
     term.setCursor(70, 1)
     print("Score: 0")
@@ -162,7 +162,7 @@ function update_player()
     }
 
     if new_head.x >= width then
-        new_head = 2
+        new_head.x = 2
     elseif new_head.x == 1 then
         new_head.x = width - 1
     end
